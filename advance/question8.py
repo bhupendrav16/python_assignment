@@ -6,3 +6,4 @@ def userdata( s):
  
 s = input()
 print(userdata(s))
+
