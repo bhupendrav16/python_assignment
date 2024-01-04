@@ -1,20 +1,22 @@
 def without_using_comp(n,s):
-    d = {}
-    cnt = 0
-    for ele in s:
-        if ele not in d:
-            if (len(d)>n):
-                cnt += 1 
-            d[ele] = 1
+    seen = [0]*26
+    r =  0 
+    occ = 0
+    for i in range(len(s)):
+        idx = ord(s[i]) - ord('A')
+        if seen[idx] == 0:
+            seen[idx] = 1 
+            if occ < n:
+                occ += 1
+                seen[idx] = 2 
+            else:
+                r += 1
         else:
-            # print(d)
-            if (len(d) >n):
-                cnt += 1
-                print(f"person is {ele}")
-            del d[ele]
-            # print(d)
-
-    return cnt
+            if seen[idx] == 2:
+                occ -= 1 
+            seen[idx] = 0
+    return r 
 n = int(input())
-s = input()
-print(f"number of person without using the computer are: {without_using_comp(n,s)}")
+s  = input()
+print(without_using_comp(n,s))
+    
