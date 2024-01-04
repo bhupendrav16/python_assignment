@@ -18,5 +18,5 @@ def grade(sub):
     
     return gr 
 
-l = [int(input()) for i in range(5) ]
+l = [int(input("Enter marks for {}: ".format(subject))) for subject in ["Physics", "Chemistry", "Biology", "Mathematics", "Computer"]]
 print(grade(l))
